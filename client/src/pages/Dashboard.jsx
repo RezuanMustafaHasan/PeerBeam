@@ -31,9 +31,7 @@ export default function Dashboard() {
     <div className="app-container">
       <aside className="sidebar">
         <h2>Welcome, {user?.username}</h2>
-        <button onClick={logout} style={{ marginBottom: "1rem" }}>
-          Logout
-        </button>
+        <button onClick={logout}>Logout</button>
         <h3>Active Users</h3>
         <ul>
           {activeUsers
@@ -86,7 +84,7 @@ export default function Dashboard() {
             style={{ display: "none" }}
             id="file-input"
           />
-          <label htmlFor="file-input" style={{ cursor: "pointer", padding: "0.75rem", background: "#38bdf8", color: "#fff" }}>
+          <label htmlFor="file-input" className="file-label">
             📎
           </label>
         </div>
