@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: p2p-share-server
+    env: node
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    envVars:
+      - key: MONGO_URI
+        value: "<your-atlas-uri>"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ORIGIN
+        value: "*"
