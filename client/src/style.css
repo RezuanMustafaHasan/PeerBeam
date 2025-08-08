@@ -5,11 +5,21 @@
   box-sizing: border-box;
 }
 
+:root {
+  --primary: #38bdf8;
+  --primary-dark: #0ea5e9;
+  --sidebar-bg: #1f2937;
+  --text-dark: #111827;
+  --error: #ef4444;
+  --success: #22c55e;
+}
+
 body {
   font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
-  background: #f4f6f8;
-  color: #333;
+  background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+  color: var(--text-dark);
   line-height: 1.5;
+  min-height: 100vh;
 }
 
 a {
@@ -21,6 +31,76 @@ ul {
   list-style: none;
 }
 
+.auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.card {
+  background: #fff;
+  width: 100%;
+  max-width: 360px;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card h2 {
+  margin-bottom: 1rem;
+}
+
+.card form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.card input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+}
+
+.card form button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.card form button:hover {
+  background: var(--primary-dark);
+}
+
+.card p {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.card p button {
+  background: none;
+  border: none;
+  color: var(--primary-dark);
+  cursor: pointer;
+  padding: 0;
+}
+
+.error {
+  color: var(--error);
+  margin-top: 0.5rem;
+}
+
+.ok {
+  color: var(--success);
+  margin-top: 0.5rem;
+}
+
 /* Layout */
 .app-container {
   display: flex;
@@ -29,17 +109,33 @@ ul {
 
 .sidebar {
   width: 280px;
-  background: #1f2937;
+  background: var(--sidebar-bg);
   color: #fff;
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
 }
 
 .sidebar h2 {
   font-size: 1.25rem;
   margin-bottom: 1rem;
-  color: #38bdf8;
+  color: var(--primary);
+}
+
+.sidebar button {
+  background: var(--primary);
+  border: none;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: background 0.2s;
+}
+
+.sidebar button:hover {
+  background: var(--primary-dark);
 }
 
 .sidebar ul li {
@@ -65,18 +161,20 @@ ul {
   flex: 1;
   padding: 1rem;
   overflow-y: auto;
+  background: #fff;
 }
 
 .message {
   max-width: 70%;
   margin-bottom: 0.5rem;
   padding: 0.5rem 0.75rem;
-  border-radius: 8px;
+  border-radius: 12px;
   font-size: 0.95rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .message.self {
-  background: #38bdf8;
+  background: var(--primary);
   color: #fff;
   margin-left: auto;
 }
@@ -98,6 +196,7 @@ ul {
 .chat-input {
   display: flex;
   border-top: 1px solid #ddd;
+  background: #fff;
 }
 
 .chat-input input {
@@ -108,7 +207,7 @@ ul {
 }
 
 .chat-input button {
-  background: #38bdf8;
+  background: var(--primary);
   border: none;
   color: white;
   padding: 0 1rem;
@@ -117,7 +216,21 @@ ul {
 }
 
 .chat-input button:hover {
-  background: #0ea5e9;
+  background: var(--primary-dark);
+}
+
+.file-label {
+  background: var(--primary);
+  color: #fff;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.file-label:hover {
+  background: var(--primary-dark);
 }
 
 /* File Progress */
@@ -131,7 +244,7 @@ ul {
 
 .file-progress-bar {
   height: 100%;
-  background: #38bdf8;
+  background: var(--primary);
   width: 0%;
   transition: width 0.2s;
 }
